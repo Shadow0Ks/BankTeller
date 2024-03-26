@@ -1,16 +1,19 @@
 import java.awt.event.ActionEvent;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Main {
+
+    static ArrayList<Object> userList = new ArrayList<Object>();
     public static void main(String[] args) {
         System.out.println("Hello world!");
         Window screen = new Window();
 
-        //UserInput b = new UserInput();
+        UserInput b = new UserInput();
         BinaryTree tree = new BinaryTree();
         //Node trees = new BinaryTree();
 
-        //int answer = b.gatherCustomerInfo();
-
+        int answer = b.gatherCustomerInfo();
 
         //base of the tree
         tree.root = new Node(10);
@@ -21,21 +24,32 @@ public class Main {
 
 
         //figure how to get the value out of the branch
-        if (tree.search(10) == true) {
-            System.out.println("its working");
-        }
-//        if (tree.search(5) == true){
-//            System.out.println("Make a deposit");
+//        if (tree.search(10) == true) {
+//            System.out.println("its working");
 //        }
+
+        if (tree.root.left.data == answer){
+            System.out.println("hi");
+            //question.doesNotHaveAnAccount();
+
+
+        }
+        if (tree.root.left.right.data == answer){
+            System.out.println("shoud be wrong");
+        }
+//
         //asking a question based on what the customer answers
 
 
+    }
 
+    public int identification(){
 
+        return 0;
     }
 
 
-    }
+}
 
 
 
@@ -56,6 +70,5 @@ public class Main {
 
         - Read data for the file
      */
-}
 
 //if persons I wanna check and then traverse down

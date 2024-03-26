@@ -1,6 +1,6 @@
 public class BinaryTree {
     Node root;
-    //int data;
+
 
     public BinaryTree() {
         root = null;
@@ -37,5 +37,10 @@ public class BinaryTree {
             return searchRec(root.left, data);
         }
         return searchRec(root.right, data);
+    }
+
+    public int identification(){
+
+        return 0;
     }
 }

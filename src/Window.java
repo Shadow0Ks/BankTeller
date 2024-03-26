@@ -39,9 +39,9 @@ public class Window extends JFrame implements ItemListener {
         add(nextPage, BorderLayout.SOUTH);
 
 
-        prevPage = new JButton("Previous Page");
-        prevPage.setBounds(nextPageX, nextPageY, 100, 30);
-        add(prevPage, BorderLayout.NORTH);
+//        prevPage = new JButton("Previous Page");
+//        prevPage.setBounds(nextPageX, nextPageY, 100, 30);
+//        add(prevPage, BorderLayout.NORTH);
 
     }
 
@@ -98,12 +98,12 @@ public class Window extends JFrame implements ItemListener {
         return fontSize;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == nextPage) {
-
-        }
-
-    }
+//    @Override
+//    public void actionPerformed(ActionEvent e) {
+//        if (e.getSource() == nextPage) {
+//
+//        }
+//
+//    }
 
 }

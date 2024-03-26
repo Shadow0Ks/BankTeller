@@ -4,12 +4,19 @@ public class Customer {
     private double moneyInBank;
     private int creditScore;
     private int customerID;
+
+
+    //NOTE::: (should look up by first name only for now, then scale it up)
     public Customer(String firstName, String lastName, double moneyInBank, int creditScore, int customerID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.moneyInBank = moneyInBank;
         this.creditScore = creditScore;
         this.customerID = customerID;
+    }
+
+    public Customer(String firstName){
+        this.firstName = firstName;
     }
     public String getFirstName() {
         return firstName;
