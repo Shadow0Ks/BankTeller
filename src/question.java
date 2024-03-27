@@ -4,22 +4,24 @@ import java.util.Scanner;
 
 public class question {
     public static String objectName;
-//    public boolean haveAnAccount(){
-//        //not if: I HAVE an account base on button input
-//
-//        Customer customer = getCustomerInfo();
-//        //search by Customer ID
-//
-//
-//        //finish working on this tonight\
-//        //create an arraylist then grab
-//        //grab customer array location and check if it exists within the relay
-//        if (customer !=  )
-//        {
+    public boolean haveAnAccount() {
+        //not if: I HAVE an account base on button input
+
+        Customer customer = getCustomerInfo();
+        //search by Customer ID
+
+
+        //finish working on this tonight\
+        //create an arraylist then grab
+        //grab customer array location and check if it exists within the relay
+//        if (customer !=) {
 //
 //        }
+
+        return false;
+    }
 //
-//    }
+
 //    public boolean doesNotHaveAccount(){
 //        if (/*account does not exist*/){
 //

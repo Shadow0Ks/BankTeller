@@ -11,7 +11,14 @@ public class Main {
 
         UserInput b = new UserInput();
         BinaryTree tree = new BinaryTree();
+
         //Node trees = new BinaryTree();
+
+        /*
+        Displaying file content
+         */
+        CSVForCustomerInfo.CSVFileStore();
+
 
         int answer = b.gatherCustomerInfo();
 
