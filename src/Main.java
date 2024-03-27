@@ -46,6 +46,13 @@ public class Main {
         }
 //
         //asking a question based on what the customer answers
+
+
+
+
+
+        ////////////////////////////////////////////////////
+        //list data stored in arraylist
         for (Customer customer : customerList) {
             System.out.println("Customer First Name: " + customer.getFirstName());
             System.out.println("Customer Last Name: " + customer.getLastName());

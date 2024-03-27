@@ -39,7 +39,10 @@ public class CSVForCustomerInfo {
 
         try(BufferedReader reader = new BufferedReader(new FileReader(fileName))){
 
+            //this will skip the first line which is the headers(names)
             String header = reader.readLine();
+
+            //this will read the CSV file and add to an array list
             String line;
             while ((line = reader.readLine()) != null){
                 String[] data = line.split(",");
@@ -48,11 +51,11 @@ public class CSVForCustomerInfo {
                     String customerFirstName = data[0];
                     String customerLastName = data[1];
 
+                    //makes sure that the data is stored properly
                     try {
                         double customerMoneyInBank = Double.parseDouble(data[2]);
                         int customerCreditScore = Integer.parseInt(data[3]);
                         int customerID = Integer.parseInt(data[4]);
-
                         customers.add(new Customer(customerFirstName, customerLastName, customerMoneyInBank, customerCreditScore, customerID));
 
                     } catch (NumberFormatException e){
