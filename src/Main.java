@@ -1,23 +1,23 @@
 import java.awt.event.ActionEvent;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
-    static ArrayList<Object> userList = new ArrayList<Object>();
+    static String fileName = "src\\customer_data.csv";
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        //System.out.println("Hello world!");
         Window screen = new Window();
 
         UserInput b = new UserInput();
         BinaryTree tree = new BinaryTree();
 
         //Node trees = new BinaryTree();
-
         /*
         Displaying file content
          */
-        CSVForCustomerInfo.CSVFileStore();
+        List<Customer> customerList = CSVForCustomerInfo.loadCustomer(fileName);
 
 
         int answer = b.gatherCustomerInfo();
@@ -46,16 +46,19 @@ public class Main {
         }
 //
         //asking a question based on what the customer answers
+        for (Customer customer : customerList) {
+            System.out.println("Customer First Name: " + customer.getFirstName());
+            System.out.println("Customer Last Name: " + customer.getLastName());
+            System.out.println("Customer Money in Bank: " + customer.getMoneyInBank());
+            System.out.println("Customer Credit Score: " + customer.getCreditScore());
+            System.out.println("Customer ID: " + customer.getCustomerID());
+            System.out.println(); // Add a blank line for separation
+        }
+
+
 
 
     }
-
-    public int identification(){
-
-        return 0;
-    }
-
-
 }
 
 

@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 
 public class question {
     public static String objectName;
+
+    CSVForCustomerInfo csvForCustomerInfo;
     public boolean haveAnAccount() {
         //not if: I HAVE an account base on button input
 
@@ -14,6 +17,9 @@ public class question {
         //finish working on this tonight\
         //create an arraylist then grab
         //grab customer array location and check if it exists within the relay
+
+        ArrayList<Customer> customer_name = new ArrayList<Customer>();
+
 //        if (customer !=) {
 //
 //        }
@@ -52,4 +58,6 @@ public class question {
 
         return objectName;
     }
+
+
 }
