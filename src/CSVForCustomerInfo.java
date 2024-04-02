@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CSVForCustomerInfo {
 
@@ -8,30 +9,30 @@ public class CSVForCustomerInfo {
 
 
 
-    public static void CSVFileStore(){
-        String file = "src\\customer_data.csv";
-        BufferedReader reader = null;
-        String line = "";
-
-        try {
-            reader = new BufferedReader(new FileReader(file));
-            while ((line = reader.readLine()) != null){
-                String[] row = line.split(",");
-                for (String index : row){
-                    System.out.printf("%-10s", index);
-                }
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+//    public static void CSVFileStore(){
+//        String file = "src\\customer_data.csv";
+//        BufferedReader reader = null;
+//        String line = "";
+//
+//        try {
+//            reader = new BufferedReader(new FileReader(file));
+//            while ((line = reader.readLine()) != null){
+//                String[] row = line.split(",");
+//                for (String index : row){
+//                    System.out.printf("%-10s", index);
+//                }
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        finally {
+//            try {
+//                reader.close();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//    }
 
 
     public static List<Customer> loadCustomer(String fileName){
@@ -68,5 +69,40 @@ public class CSVForCustomerInfo {
             e.printStackTrace();
         }
         return  customers;
+    }
+
+
+
+    public static void addCustomerInfoToExistingCSVFile(){
+        Scanner sc = new Scanner(System.in);
+
+        String file = "src\\customer_data.csv";
+
+        System.out.println("add a first name");
+        String newFirstName = sc.next();
+        System.out.println("add a last name");
+        String newLastName = sc.next();;
+        System.out.println("Enter your first deposit");
+        double alreadyExistingMoneyInBank = sc.nextDouble();
+        System.out.println("Enter your credit score");
+        int newCustomerCreditScore = sc.nextInt();
+        System.out.println("4 digit customer id");
+        int newCustomerId = sc.nextInt();
+
+
+        try {
+            FileWriter writer = new FileWriter(file, true);
+            writer.write(newFirstName + "," + newLastName + "," +
+                    alreadyExistingMoneyInBank + "," +
+                    newCustomerCreditScore + "," +
+                    newCustomerId + "\n");
+
+            writer.close();
+            System.out.println("information is added");
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

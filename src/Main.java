@@ -17,15 +17,21 @@ public class Main {
         /*
         Displaying file content
          */
+        //Load customer inforamtion to the screen
         List<Customer> customerList = CSVForCustomerInfo.loadCustomer(fileName);
 
 
-        int answer = b.gatherCustomerInfo();
 
-        //base of the tree
-        tree.root = new Node(10);
-        tree.insert(5);
-        tree.insert(6);
+
+
+
+
+//        int answer = b.gatherCustomerInfo();
+//
+//        //base of the tree
+//        tree.root = new Node(10);
+//        tree.insert(5);
+//        tree.insert(6);
 
 
 
@@ -35,15 +41,15 @@ public class Main {
 //            System.out.println("its working");
 //        }
 
-        if (tree.root.left.data == answer){
-            System.out.println("hi");
-            //question.doesNotHaveAnAccount();
-
-
-        }
-        if (tree.root.left.right.data == answer){
-            System.out.println("shoud be wrong");
-        }
+//        if (tree.root.left.data == answer){
+//            System.out.println("hi");
+//            //question.doesNotHaveAnAccount();
+//
+//
+//        }
+//        if (tree.root.left.right.data == answer){
+//            System.out.println("shoud be wrong");
+//        }
 //
         //asking a question based on what the customer answers
 
@@ -63,6 +69,9 @@ public class Main {
         }
 
 
+        //adds you customer information to the csv file
+        System.out.println("adding new customer to system");
+        CSVForCustomerInfo.addCustomerInfoToExistingCSVFile();
 
 
     }
