@@ -76,8 +76,11 @@ public class CSVForCustomerInfo {
     public static void addCustomerInfoToExistingCSVFile(){
         Scanner sc = new Scanner(System.in);
 
+        //specifying the file I want to write too
         String file = "src\\customer_data.csv";
 
+
+        //make this work with the screen
         System.out.println("add a first name");
         String newFirstName = sc.next();
         System.out.println("add a last name");
@@ -89,8 +92,9 @@ public class CSVForCustomerInfo {
         System.out.println("4 digit customer id");
         int newCustomerId = sc.nextInt();
 
-
+        //Make sure this works with the screen
         try {
+            //calls a function from the java.io library to write on CSV files and the file is already specified
             FileWriter writer = new FileWriter(file, true);
             writer.write(newFirstName + "," + newLastName + "," +
                     alreadyExistingMoneyInBank + "," +
