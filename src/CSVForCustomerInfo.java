@@ -6,33 +6,7 @@ import java.util.Scanner;
 public class CSVForCustomerInfo {
 
     List<Object> list = new ArrayList<>();
-
-
-
-//    public static void CSVFileStore(){
-//        String file = "src\\customer_data.csv";
-//        BufferedReader reader = null;
-//        String line = "";
-//
-//        try {
-//            reader = new BufferedReader(new FileReader(file));
-//            while ((line = reader.readLine()) != null){
-//                String[] row = line.split(",");
-//                for (String index : row){
-//                    System.out.printf("%-10s", index);
-//                }
-//            }
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        finally {
-//            try {
-//                reader.close();
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//    }
+    static String file = "src\\customer_data.csv";
 
 
     public static List<Customer> loadCustomer(String fileName){
@@ -77,7 +51,7 @@ public class CSVForCustomerInfo {
         Scanner sc = new Scanner(System.in);
 
         //specifying the file I want to write too
-        String file = "src\\customer_data.csv";
+
 
 
         //make this work with the screen
@@ -106,6 +80,23 @@ public class CSVForCustomerInfo {
 
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+
+    }
+
+
+
+
+    public static void printCSVList(){
+        List<Customer> customerList = CSVForCustomerInfo.loadCustomer(file);
+
+        for (Customer customer : customerList) {
+            System.out.println("Customer First Name: " + customer.getFirstName());
+            System.out.println("Customer Last Name: " + customer.getLastName());
+            System.out.println("Customer Money in Bank: " + customer.getMoneyInBank());
+            System.out.println("Customer Credit Score: " + customer.getCreditScore());
+            System.out.println("Customer ID: " + customer.getCustomerID());
+            System.out.println(); // Add a blank line for separation
         }
 
     }

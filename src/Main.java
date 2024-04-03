@@ -11,14 +11,17 @@ public class Main {
         Window screen = new Window();
 
         UserInput b = new UserInput();
-        BinaryTree tree = new BinaryTree();
+        //BinaryTree tree = new BinaryTree();
 
         //Node trees = new BinaryTree();
         /*
         Displaying file content
          */
         //Load customer inforamtion to the screen
-        List<Customer> customerList = CSVForCustomerInfo.loadCustomer(fileName);
+        //
+        // List<Customer> customerList = CSVForCustomerInfo.loadCustomer(fileName);
+
+
 
 
 
@@ -59,19 +62,13 @@ public class Main {
 
         ////////////////////////////////////////////////////
         //list data stored in arraylist
-        for (Customer customer : customerList) {
-            System.out.println("Customer First Name: " + customer.getFirstName());
-            System.out.println("Customer Last Name: " + customer.getLastName());
-            System.out.println("Customer Money in Bank: " + customer.getMoneyInBank());
-            System.out.println("Customer Credit Score: " + customer.getCreditScore());
-            System.out.println("Customer ID: " + customer.getCustomerID());
-            System.out.println(); // Add a blank line for separation
-        }
 
 
         //adds you customer information to the csv file
         System.out.println("adding new customer to system");
         CSVForCustomerInfo.addCustomerInfoToExistingCSVFile();
+        //printing the list
+        CSVForCustomerInfo.printCSVList();
 
 
     }
