@@ -28,9 +28,6 @@ public class Window extends JFrame implements ItemListener {
         setVisible(true);
 
 
-
-
-
         int nextPageX = SCREEN_WIDTH - 150;
         int nextPageY = SCREEN_HEIGHT - 80;
         nextPage = new JButton("Next page");
@@ -44,6 +41,8 @@ public class Window extends JFrame implements ItemListener {
 //        add(prevPage, BorderLayout.NORTH);
 
     }
+
+
 
     void drawRectangles(Graphics graphics){
         //x,y location of the rectangle
@@ -90,6 +89,10 @@ public class Window extends JFrame implements ItemListener {
 
 
         //clear the screen
+    }
+
+    public void createAccountScreen(Graphics graphics){
+
     }
 
     private int calculateFontSize(){

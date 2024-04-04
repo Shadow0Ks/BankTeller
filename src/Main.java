@@ -8,11 +8,21 @@ public class Main {
     static String fileName = "src\\customer_data.csv";
     public static void main(String[] args) {
         //System.out.println("Hello world!");
-        Window screen = new Window();
+        //Window screen = new Window();
 
-        UserInput b = new UserInput();
+        //SCREEN STUFF
+        welcome screen = new welcome();
+
+
+
+
+
+
+
+
+
+
         //BinaryTree tree = new BinaryTree();
-
         //Node trees = new BinaryTree();
         /*
         Displaying file content
@@ -21,23 +31,12 @@ public class Main {
         //
         // List<Customer> customerList = CSVForCustomerInfo.loadCustomer(fileName);
 
-
-
-
-
-
-
-
-
 //        int answer = b.gatherCustomerInfo();
 //
 //        //base of the tree
 //        tree.root = new Node(10);
 //        tree.insert(5);
 //        tree.insert(6);
-
-
-
 
         //figure how to get the value out of the branch
 //        if (tree.search(10) == true) {
