@@ -16,9 +16,6 @@ public class accountquestion extends JFrame{
         lbtitle.setFont(mainFont);
 
 
-
-
-
         JPanel formPanel= new JPanel();
         formPanel.setLayout(new GridLayout(4, 1, 5, 5));
         formPanel.add(lbtitle);
@@ -28,7 +25,7 @@ public class accountquestion extends JFrame{
         lbtest = new JLabel();
         lbtest.setFont(mainFont);
 
-        // buttons panel or some
+        //when this button is pressed it will take me to the search page
         JButton btnYesButton = new JButton ("Yes, I do have an Account");
         btnYesButton.addActionListener(e ->{
             dispose();
