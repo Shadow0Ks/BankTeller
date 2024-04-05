@@ -4,6 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.print.PrinterException;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class welcome extends JFrame implements ItemListener {
@@ -18,6 +25,8 @@ public class welcome extends JFrame implements ItemListener {
     JButton prevPage;
 
 
+    static String file = "src\\customer_data.csv";
+    List<Customer> customers = new ArrayList<>();
 
 
     public welcome(){
@@ -81,10 +90,6 @@ public class welcome extends JFrame implements ItemListener {
         drawRectangles(graphics);
     }
 
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-
-    }
 
 
     public void welcomeScreen(Graphics graphics){
@@ -115,6 +120,10 @@ public class welcome extends JFrame implements ItemListener {
         return fontSize;
     }
 
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+
+    }
 
 
     //NO WINDOW
@@ -188,9 +197,10 @@ public class welcome extends JFrame implements ItemListener {
             btnOK.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+
+                    writeDataToCSV();
                     dispose();
-                    credit creditWindow = new credit();
-                    creditWindow.initialize();
+                    new welcome();
                 }
             });
 
@@ -228,7 +238,23 @@ public class welcome extends JFrame implements ItemListener {
             setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             setVisible(true);
         }
+        private void writeDataToCSV() {
+            try (FileWriter writer = new FileWriter(file, true)) { // Append mode enabled
+                StringBuilder sb = new StringBuilder();
+                sb.append(TextFirstName.getText()).append(",");
+                sb.append(TextLastName.getText()).append(",");
+                sb.append(TextMoneyBox.getText()).append(",");
+                sb.append(TextCreditScore.getText()).append(",");
+                sb.append(TextCustomerID.getText()).append("\n");
+
+                writer.write(sb.toString());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+
 
     public class accountquestion extends JFrame {
         final private Font mainFont = new Font("Segeo Print", Font.BOLD, 18);
@@ -246,13 +272,19 @@ public class welcome extends JFrame implements ItemListener {
             lbtest = new JLabel();
             lbtest.setFont(mainFont);
 
+            //has a bank account button
             JButton btnYesButton = new JButton("Yes, I do have an Account");
             btnYesButton.addActionListener(e -> {
                 dispose();
                 new name().initialize();
             });
+
             btnYesButton.setFont(mainFont);
 
+
+
+
+            //does not hav a bank account button
             JButton btnNoButton = new JButton("No I don't have an account");
             btnNoButton.setFont(mainFont);
             btnNoButton.addActionListener(new ActionListener() {
@@ -267,6 +299,7 @@ public class welcome extends JFrame implements ItemListener {
             panel.add(btnYesButton);
             add(panel);
 
+            //clears typed in text from the page
             JButton btnClear = new JButton("clear");
             btnClear.setFont(mainFont);
             btnClear.addActionListener(new ActionListener() {
@@ -277,21 +310,23 @@ public class welcome extends JFrame implements ItemListener {
                     lbtest.setText("");
                 }
             });
-    
+
+
+
             JPanel buttonpanel = new JPanel();
             buttonpanel.setLayout(new GridLayout(1, 2, 5, 5));
             buttonpanel.add(btnYesButton);
             buttonpanel.add(btnNoButton);
-    
+
             JPanel window1 = new JPanel();
             window1.setLayout(new BorderLayout());
             window1.setBackground(new Color(128, 128, 255));
             window1.add(formPanel, BorderLayout.NORTH);
             window1.add(lbtest, BorderLayout.CENTER);
             window1.add(buttonpanel, BorderLayout.SOUTH);
-    
+
             add(window1);
-    
+
             setTitle("Bank Teller");
             setSize(400, 300);
             setMinimumSize(new Dimension(600, 400));
