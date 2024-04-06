@@ -14,14 +14,6 @@ public class Main {
         welcome screen = new welcome();
 
 
-
-
-
-
-
-
-
-
         //BinaryTree tree = new BinaryTree();
         //Node trees = new BinaryTree();
         /*

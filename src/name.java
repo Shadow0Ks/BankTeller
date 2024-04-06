@@ -14,7 +14,7 @@ public class name extends JFrame{
     static String fileName = "src\\customer_data.csv";
 
      final private Font mainFont = new Font ("Segeo Print", Font.BOLD, 18);
-     JTextField TextCustomerID;
+     static JTextField TextCustomerID;
      //JTextField tftitle2;
      JLabel lbtest;
 
@@ -54,7 +54,7 @@ public class name extends JFrame{
                 //UPDATE OVER HERE
                 //check if the customer is in the files
 
-
+                checkCustomerID();
 
 
 
@@ -133,23 +133,36 @@ public class name extends JFrame{
      }
 
 
-     public static boolean checkCustomerID(String customerID) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
+     public static void checkCustomerID() {
+        String customerIDCheck = TextCustomerID.getText();
+        try (BufferedReader read = new BufferedReader(new FileReader(fileName))){
             String line;
-            while ((line = reader.readLine()) != null){
-                //split the csv lines by commas
-                String[] parts = line.split(",");
+            while ((line = read.readLine()) != null){
+                String[] data = line.split(",");
 
-                //checks if it is the part we are looking for(customerID)
-                if (parts.length > 0 && parts[0].equals(customerID)){
-                    return true;
+
+                //this is where customerID is located in the CSV file
+                String customerID = data[4].trim();
+                if (customerID.equals(customerIDCheck)){
+                    //call the next screen which will show that his files
+                    System.out.println("Customer ID does exist");
+
+
+                }else{
+                    //tell me that the screen doesnt exist
+                    System.out.println("Customer ID does not Exist");
+
+
+                    //then take me back to the main screen
                 }
 
             }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return false;
      }
 
  }
