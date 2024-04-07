@@ -53,7 +53,9 @@ public class welcome extends JFrame implements ItemListener {
         nextPage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose(); //CLOSES WINDOW FUCKKK
+                dispose(); //CLOSES WINDOW
+
+                //just closes the window
                 EventQueue.invokeLater(new Runnable() {
                     @Override
                     public void run() {
@@ -335,7 +337,6 @@ public class welcome extends JFrame implements ItemListener {
             setVisible(true);
         }
     }
-
 
 }
 

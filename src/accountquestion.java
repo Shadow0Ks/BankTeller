@@ -12,6 +12,7 @@ public class accountquestion extends JFrame{
 
     public void initialize()   {
 //panel
+        dispose();
         JLabel lbtitle = new JLabel("Do you have an account with us?");
         lbtitle.setFont(mainFont);
 

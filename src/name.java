@@ -53,16 +53,16 @@ public class name extends JFrame{
              public void actionPerformed(ActionEvent e) {
                 //UPDATE OVER HERE
                 //check if the customer is in the files
-
                 checkCustomerID();
 
 
 
 
                  //goes to new screen if the customer is here
-                 dispose();
-                 credit creditWindow = new credit();
-                 creditWindow.initialize();
+//                 dispose();
+//                 infoscreen infroscreen = new infoscreen();
+//                 infroscreen.initialize();
+
                  // TODO Auto-generated method stub
            //  String title = JCustomerID.getText();
              //String title2 = JCustomerID2.getText();
@@ -117,45 +117,59 @@ public class name extends JFrame{
          setVisible(true);
 
      }
-     private void OpenNewPage(){
+//     private void OpenNewPage(){
+//
+//         //new page
+//         JFrame secondFrame = new JFrame();
+//         secondFrame.setTitle("Second Page");
+//         secondFrame.setSize(400, 400);
+//         secondFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//
+//         JLabel label = new JLabel("test");
+//         label.setFont(mainFont);
+//         secondFrame.add(label);
+//
+//         secondFrame.setVisible(true);
+//     }
 
-         //new page
-         JFrame secondFrame = new JFrame();
-         secondFrame.setTitle("Second Page");
-         secondFrame.setSize(400, 400);
-         secondFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-         JLabel label = new JLabel("test");
-         label.setFont(mainFont);
-         secondFrame.add(label);
-
-         secondFrame.setVisible(true);
-     }
-
-
-     public static void checkCustomerID() {
+    public void checkCustomerID() {
         String customerIDCheck = TextCustomerID.getText();
-        try (BufferedReader read = new BufferedReader(new FileReader(fileName))){
+        boolean customerDoesExist = false;
+        try (BufferedReader read = new BufferedReader(new FileReader(fileName))) {
             String line;
-            while ((line = read.readLine()) != null){
+            while ((line = read.readLine()) != null) {
                 String[] data = line.split(",");
 
-
-                //this is where customerID is located in the CSV file
                 String customerID = data[4].trim();
-                if (customerID.equals(customerIDCheck)){
-                    //call the next screen which will show that his files
+                if (customerID.equals(customerIDCheck)) {
+                    // Customer ID exists
                     System.out.println("Customer ID does exist");
+                    customerDoesExist = true;
 
+                    // Create an ArrayList to store customer information
+                    List<String> customerInfo = new ArrayList<>();
 
-                }else{
-                    //tell me that the screen doesnt exist
-                    System.out.println("Customer ID does not Exist");
+                    for (int i = 0; i < data.length; i++) {
+                        customerInfo.add(data[i]);
+                    }
 
+                    // Display customer information on the infoscreen
+                    infoscreen infroscreen = new infoscreen();
+                    infroscreen.displayCustomerInfo(customerInfo.toArray(new String[0]));
 
-                    //then take me back to the main screen
+                    dispose();
+                    break;
                 }
+            }
 
+            if (!customerDoesExist) {
+                // Customer ID does not exist
+                System.out.println("Customer ID does not Exist");
+                dispose();
+                accountquestion aq = new accountquestion();
+                aq.initialize();
+                // Take me back to the main screen if needed
             }
 
         } catch (FileNotFoundException e) {
@@ -164,13 +178,8 @@ public class name extends JFrame{
             throw new RuntimeException(e);
         }
      }
-
  }
-        
 
-
-        // new component?s
-    
 
     
 

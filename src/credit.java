@@ -105,8 +105,4 @@ public class credit extends JFrame{
         setVisible(true);
 
     }
-  
-
-
-
 }
